@@ -1,0 +1,105 @@
+4.            Consider a bank that offers its customers the following account types:
+·         Checking account: no interest; a small number of free transactions per month, additional transactions are charged a small fee.
+·         Savings account: earns interest that compounds monthly.
+
+Inheritance hierarchy
+·         All bank accounts support the getBalance method.
+·         All bank accounts support the deposit and withdraw methods.
+·         Checking account needs a method deductFees; savings account needs a method addInterest.
+ 
+Source Code:
+/**
+ * @author SAEESH
+ *
+ */
+public class BankAcc {
+        	double balance;
+        	
+        	public BankAcc(double balance) {
+                    	this.balance = balance;
+        	}
+        	
+        	public void deposit(double amount) {
+                    	this.balance += amount;
+        	}
+        	
+        	public void withraw(double amount) {
+                    	this.balance -= amount;
+        	}
+        	
+        	public double getBalance() {
+                    	return balance;
+        	}
+}
+ 
+/**
+ * @author SAEESH
+ *
+ */
+public class SavingsAcc extends BankAcc{
+                    	float interest = 0.01F;
+                    	/**
+                    	 * @param balance
+                    	 */
+                    	public SavingsAcc(double balance) {
+                                	super(balance);
+                                	
+                    	}
+                    	public void addInterest() {
+                                	balance += balance * interest;
+                    	
+        	}
+ 
+}
+ 
+/**
+ * @author SAEESH
+ *
+ */
+public class CheckingAcc extends BankAcc{
+        	float deductAmount = 0.0025F;
+        	/**
+        	 * @param balance
+        	 */
+        	public CheckingAcc(double balance) {
+                    	super(balance);
+                    	
+        	}
+        	public void deductFees() {
+                                	balance -= balance * deductAmount;
+        	}
+}
+ 
+/**
+ * @author SAEESH
+ *
+ */
+public class AccMain {
+ 
+        	/**
+        	 * @param args
+        	 */
+        	public static void main(String[] args) {
+                    	
+                    	SavingsAcc sa = new SavingsAcc(50000);
+                    	CheckingAcc ca = new CheckingAcc(1000000);
+                    	
+                    	System.out.println("CA = " + ca.getBalance());
+                    	System.out.println("SA = " + sa.getBalance());
+                    	
+                    	ca.deductFees();
+                    	sa.addInterest();
+                    	
+                    	System.out.println("After adding and deducting");
+                    	System.out.println("CA = " + ca.getBalance());
+                    	System.out.println("SA = " + sa.getBalance());
+        	}
+ 
+}
+ 
+Output:
+CA = 1000000.0
+SA = 50000.0
+After adding and deducting
+CA = 997500.0000558794
+SA = 50499.99998882413
