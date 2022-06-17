@@ -1,0 +1,78 @@
+public class employee  {
+	int salary;
+	/**
+ 	* This method returns Salary
+ 	* @return salary
+ 	*/
+        	public int getSalary() {
+                    	return salary;
+        	}
+        	/**
+        	 * This method sets the Salary
+        	 * @param salary
+        	 */
+        	public void setSalary(int salary) {
+                    	this.salary = salary;
+        	}
+	/**
+ 	* This is constructor
+ 	* @param x
+ 	*/
+	employee(int x)
+	{
+	    	salary= x;
+	}
+	
+}
+ 
+public class Programmer extends employee{
+   int bonus;
+/**
+ * This method returns Bonus
+ * @return bonus
+ */
+public int getBonus() {
+        	return bonus;
+}
+/**
+ * This method sets the bonus
+ * @param bonus
+ */
+public void setBonus(int bonus) {
+        	this.bonus = bonus;
+}
+   /**
+	* This is constructor with super-key
+	* @param x
+	* @param y
+	*/
+   Programmer(int x,int y)
+   {
+        	   super(x);
+        	   bonus= y;
+   }
+   /**
+	* This method displays the details
+	*/
+   void display()
+   {
+        	System.out.println("Salary--"+salary);
+        	System.out.println("Bonus--"+bonus);
+        	System.out.println("Total salary--"+(salary+bonus));
+   }
+}
+ 
+public class employeemain {
+ 
+        	public static void main(String[] args) {
+                    	// TODO Auto-generated method stub
+                    	Programmer P1 = new Programmer(2000,20);
+                    	P1.display();
+        	}
+ 
+}
+ 
+Output:
+Salary--2000
+Bonus--20
+Total salary--2020
