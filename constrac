@@ -1,0 +1,40 @@
+public class
+{
+ int id;
+ string nme;
+ int cost;
+ 
+ public product() //nonparametried cons
+ {
+  id=1000;
+  name="sae";
+  cost=234;
+ }
+ 
+ public product (int id,String name,int cost)
+ {
+ super();
+ this.id=id;
+ this.name=name;
+ this.cost=cost;
+}
+
+void display()
+{
+ sysout("pro if"+id);
+ ("pro name"+name);
+ ("pro cost" +cpst);
+}
+}
+
+public class productmain
+{
+ public static void main(String [] args)
+ {
+  prod p1=new prod();
+  prod p2=new prod(23234,"wer",234);
+  
+  p1.display();
+  p2.dispal();
+ }
+}
